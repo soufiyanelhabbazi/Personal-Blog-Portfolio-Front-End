@@ -10,6 +10,9 @@ import { AboutComponent } from './components/about/about.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import {CommonModule} from "@angular/common";
+import { PostComponent } from './components/post/post.component';
+import {HttpClientModule} from "@angular/common/http";
+import {MarkdownModule} from "ngx-markdown";
 
 @NgModule({
   declarations: [
@@ -19,12 +22,15 @@ import {CommonModule} from "@angular/common";
     HomeComponent,
     AboutComponent,
     BlogComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    PostComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    MarkdownModule.forRoot(),
     CommonModule
   ],
   providers: [],

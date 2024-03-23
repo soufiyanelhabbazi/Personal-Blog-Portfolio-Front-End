@@ -12,3 +12,7 @@ body {
   @apply bg-black text-white;
 }
 
+markdown {
+  @apply max-w-full mx-auto flex flex-col prose md:prose-xl prose-zinc dark:prose-invert
+}
+
