@@ -10,19 +10,19 @@ import {MarkdownComponent, MarkdownService} from "ngx-markdown";
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-  postID !: number;
+  postID !: string;
   post !: Post;
   postContent!: any;
 
   constructor(private postService:PostService, private markdownService:MarkdownService, private route:ActivatedRoute){}
 
   ngOnInit() {
-    this.postID = +this.route.snapshot.params['id'];
+    this.postID = this.route.snapshot.params['id'];
     this.getPost(this.postID);
     this.postContent = this.markdownService.parse(this.post?.content);
   }
 
-  getPost(id: number) {
+  getPost(id: string) {
     this.postService.getPost(id).subscribe(post => {
       this.post = post;
     });
