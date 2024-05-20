@@ -1,4 +1,4 @@
 export const environment = {
-  production: false,
-  backend: "http://localhost:8086"
+  production: true,
+  backend: "https://blog-api-alpha-gules.vercel.app/api"
 };

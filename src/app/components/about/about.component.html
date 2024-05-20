@@ -1,106 +1,98 @@
-<section class="flex flex-col justify-between gap-10 mt-10 px-4 py-4 lg:flex-row sm:px-20">
+<section class="flex flex-col justify-between gap-10 mt-16 px-4 py-4 lg:flex-row sm:px-20">
   <div class="flex flex-col space-y-4 w-full lg:w-1/2">
-    <h1 class="font-bold text-5xl leading-snug">
-      Hi There 💜<br />
+    <h1 class="font-bold text-3xl sm:text-4xl leading-snug">
+      Hello 👋🏻<br />
       I'm Soufiyan El Habbazi.
     </h1>
-    <p class="leading-relaxed text-md text-zinc-400 text-justify">
-      Vivamus congue, neque a vulputate mollis, dui lacus cursus risus,
-      vitae fermentum felis sem a odio. Vestibulum nibh justo, blandit in
-      hendrerit id, eleifend eget sapien. Sed maximus tristique tellus,
-      eget suscipit odio euismod non. Cras ullamcorper fringilla tellus,
-      vitae efficitur ligula pharetra vitae.
+    <p class="leading-relaxed text-md text-zinc-600 dark:text-zinc-400 text-justify">
+      I hail from the historical city of
+      <a class="underline" href="https://fr.wikipedia.org/wiki/Mekn%C3%A8s" target="_blank">Meknes</a>,
+      Morocco—a place I proudly call home. My journey into the tech world has been both unconventional and fascinating,
+      fueled by a deep-seated passion for mathematics and problem-solving that I discovered during my
+      preparatory classes post-baccalaureate.
       <br />
       <br />
-      Proin aliquet neque ultricies erat blandit vestibulum. Sed lobortis
-      enim suscipit, dignissim erat quis, ultrices urna. In ornare a lorem
-      non consequat. Phasellus vitae fringilla massa, sed fringilla
-      turpis. Maecenas vel mollis libero. Morrocan.
+      I am a graduate of ENSET Mohammedia, where I specialized as a software engineer with a focus on Software,
+      Big Data, and Cloud Computing Engineering. Throughout my academic and professional journey,
+      my interests have gravitated towards software development and Artificial Intelligence,
+      areas where innovation and creativity meet to change the world as we know it.
       <br />
       <br />
-      Vivamus congue, neque a vulputate mollis, dui lacus cursus risus,
-      vitae fermentum felis sem a odio. Vestibulum nibh justo, blandit in
-      hendrerit id, eleifend eget sapien. Sed maximus tristique tellus,
-      eget suscipit odio euismod non. Cras ullamcorper fringilla tellus,
-      vitae efficitur ligula pharetra vitae.
+      Off the screen, my life orbits around football, which I both relish watching and playing,
+      and chess—a game that has lately captured my fascination for its strategic depth.
+      My friends and family are my bedrock, providing me with joy and grounding in equal measure.
+      I hold values such as empathy, lean mode, and the pursuit of efficiency close to my heart,
+      believing that they are crucial in both personal growth and professional excellence.
       <br />
       <br />
-      Proin aliquet neque ultricies erat blandit vestibulum. Sed lobortis
-      enim suscipit, dignissim erat quis, ultrices urna. In ornare a lorem
-      non consequat.
+      Here's a fun fact about me: my developer journey has taken me from the simple acts of
+      <a class="underline" href="https://github.com/THEXONE17/nodejs" target="_blank">"pushing zip files to GitHub"</a>
+      to mastering the art of training AI models and developing sophisticated software solutions.
+      This evolution reflects not only the rapid pace of technological advancement but also my commitment to learning, adapting,
+      and thriving in the dynamic world of technology.
+      <br />
+      <br />
+      My path to becoming a software engineer was far from linear, yet every step—from my early fascination with mathematics
+      to the rigorous training in Big Data and Cloud Computing—has been instrumental in shaping my approach to technology and innovation.
+      Today, I leverage my skills, curiosity, and the lessons learned along the way to explore the vast possibilities of software development
+      and AI, driven by the belief that technology, when thoughtfully applied, can forge a better future for us all.
+      <br />
+      <br />
+      Whether you're a fellow tech enthusiast, a curious learner, or simply here to share in my journey, I welcome you to my blog.
+      Here, I aim to share insights, experiences, and reflections on the ever-evolving landscape of technology, hoping to inspire,
+      educate, and connect with like-minded souls across the globe.
+      <br />
+      <br />
+      Remember, in the realm of technology and beyond, the only constant is change, and with a bit of passion, persistence,
+      and a willingness to learn, there's no limit to what we can achieve together. Welcome to my world!
     </p>
   </div>
 
   <div class="flex flex-col w-full items-center lg:w-1/2">
-    <div class="w-2/3 rotate-2 self-center">
-      <img
-        src="../assets/img/soso.png"
-        alt="Soufiyan El Habbazi"
-        class="border border-zinc-700 rounded-2xl"
-      />
+    <div class="w-2/3">
+      <img  *ngIf="isDarkMode; else lightLogo"
+        ngSrc="assets/img/logo-white.svg" alt="Phœnix"
+        class="logo-animation rounded-2xl"
+        height="800" width="800"/>
+      <ng-template #lightLogo>
+        <img ngSrc="assets/img/logo-black.svg" alt="Phœnix"
+             class="logo-animation rounded-2xl"
+             height="800" width="800"/>
+      </ng-template>
     </div>
     <div class="flex flex-col w-2/3 self-center space-y-4 mt-10">
-      <div class="flex space-x-4 items-center">
-        <a class="duration-100 ease-in-out hover:opacity-75" href="#"
-        ><img src="../assets/img/twitter.svg" width="20" alt="Twitter"
-        /></a>
+
+      <div class="flex space-x-4 items-center text-zinc-600 dark:text-zinc-400" *ngFor="let social of socials">
+        <span class="size-6 duration-100 ease-in-out hover:opacity-75">
+          <ng-icon name="{{social.icon}}" size="20"></ng-icon>
+        </span>
         <a
-          class="text-sm font-bold text-zinc-400 hover:text-zinc-300"
-          href="#"
-        >Follow on X</a
+          class="text-sm font-bold"
+          href="{{social.url}}"
+          target="_blank"
+        >{{social.content}}</a
         >
       </div>
-      <div class="flex space-x-4 items-center">
-        <a class="self-center duration-100 ease-in-out hover:opacity-75" href="#"
-        ><img src="../assets/img/linkedin.svg" width="20" alt="Twitter"
-        /></a>
-        <a
-          class="text-sm font-bold text-zinc-400 hover:text-zinc-300"
-          href="#"
-        >Follow on Linkedin</a
-        >
+
+      <div class="flex space-x-4 items-center  text-zinc-600 dark:text-zinc-400">
+        <span class="size-6 duration-100 ease-in-out brightness-75 dark:brightness-100 hover:opacity-75">
+          <img ngSrc="assets/img/chess.com.png" alt="C" width=16 height=24 class="ml-0.5 saturate-0" >
+        </span>
+        <a class="text-sm font-bold"
+          href="https://www.chess.com/member/x17md"
+          target="_blank">
+          Follow on Chess.com</a>
       </div>
-      <div class="flex space-x-4 items-center">
-        <a class="self-center duration-100 ease-in-out hover:opacity-75" href="#"
-        ><img src="../assets/img/github.svg" width="20" alt="Twitter"
-        /></a>
-        <a
-          class="text-sm font-bold text-zinc-400 hover:text-zinc-300"
-          href="#"
-        >Follow on GitHub</a
-        >
+
+      <div class="py-4">
+        <hr class="border-zinc-300/40 dark:border-zinc-700/40"/>
       </div>
-      <div class="flex space-x-4 items-center">
-        <a class="self-center duration-100 ease-in-out hover:opacity-75" href="#"
-        ><img src="../assets/img/spotify.svg" width="20" alt="Spotify"
-        /></a>
-        <a
-          class="text-sm font-bold text-zinc-400 hover:text-zinc-300"
-          href="#"
-        >Follow on Spotify</a
-        >
-      </div>
-      <div class="flex items-center">
-        <div class="my-4 w-full border-b border-b-zinc-700"></div>
-      </div>
-      <div class="flex space-x-4 items-center">
-        <a class="text-zinc-400 duration-100 ease-in-out hover:opacity-75">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke-width="2"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
-            />
-          </svg>
-        </a>
-        <a class="text-sm font-bold text-zinc-400 hover:text-zinc-300" href="mailto:elhabbazisoufiyan.pro@gmail.com">elhabbazisoufiyan.pro@gmail.com</a>
+
+      <div class="flex space-x-4 items-center text-zinc-600 dark:text-zinc-400">
+         <span class="size-6 duration-100 ease-in-out hover:opacity-75">
+          <ng-icon name="heroEnvelopeSolid" size="22"></ng-icon>
+        </span>
+        <a class="text-sm font-bold" href="mailto:elhabbazisoufiyan.pro@gmail.com">elhabbazisoufiyan.pro@gmail.com</a>
       </div>
     </div>
   </div>

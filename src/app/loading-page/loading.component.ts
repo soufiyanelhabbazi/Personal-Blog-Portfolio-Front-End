@@ -1,15 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {Socials} from "../../config/socials";
 import {Subscription} from "rxjs";
-import {DarkmodeService} from "../../services/darkmode.service";
+import {DarkmodeService} from "../services/darkmode.service";
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+  selector: 'app-loading',
+  templateUrl: './loading.component.html',
+  styleUrls: ['./loading.component.css']
 })
-export class AboutComponent implements OnInit {
-  socials = new Socials().getSocials();
+export class LoadingComponent implements OnInit{
+
+  isMobileMenuOpen = false;
   isDarkMode = false;
   private themeSubscription!: Subscription;
 
@@ -21,4 +21,5 @@ export class AboutComponent implements OnInit {
       this.isDarkMode = theme === this.darkModeService.getDarkModeClass();
     });
   }
+
 }

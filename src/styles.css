@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -8,11 +8,28 @@
 
 
 body {
-  font-family: "Roboto", "Raleway", sans-serif;
-  @apply bg-black text-white;
+  font-family: "Roboto Flex", sans-serif;
+  @apply bg-zinc-50 text-black dark:bg-black dark:text-white;
+}
+
+.date {
+  @apply font-normal text-zinc-500;
 }
 
 markdown {
-  @apply max-w-full mx-auto flex flex-col prose md:prose-xl prose-zinc dark:prose-invert
+  @apply max-w-full mx-auto flex flex-col prose md:prose-xl prose-zinc dark:prose-invert;
 }
 
+.logo-animation {
+  animation: 2s linear 1s infinite alternate logoScale;
+}
+
+@keyframes logoScale {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0.9);
+  }
+}
