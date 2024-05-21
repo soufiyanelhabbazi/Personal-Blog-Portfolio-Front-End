@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'personal-blog-portfolio-frontend-vf'`, () => {
+  it(`should have as title 'Soufiyan El Habbazi'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('personal-blog-portfolio-frontend-vf');
+    expect(app.title).toEqual('Soufiyan El Habbazi');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('personal-blog-portfolio-frontend-vf app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('Soufiyan El Habbazi app is running!');
   });
 });

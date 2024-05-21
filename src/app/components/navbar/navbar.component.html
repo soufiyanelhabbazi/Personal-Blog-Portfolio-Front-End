@@ -1,45 +1,48 @@
-<nav class="flex justify-center items-center p-8">
-<!--  <div class="block mr-auto bg-zinc-800 rounded-full border border-zinc-700 px-8 font-semibold drop-shadow-soso py-2 sm:hidden">
-    <a class="flex gap-x-2 rounded-full duration-100 ease-in-out">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-      </svg>
-      Menu
-    </a>
-  </div>  -->
-  <div class="ml-auto"></div>
-  <ul class="hidden justify-center sm:flex bg-zinc-800 rounded-full border border-zinc-700 px-8 font-semibold drop-shadow-soso py-2">
-    <li class="mx-1" *ngFor="let link of links">
-      <a routerLink="{{link.route}}" class="py-2 px-4 rounded-full duration-100 ease-in-out hover:bg-zinc-50 hover:text-zinc-800">{{link.name}}</a>
-    </li>
-    <li class="mx-1">
-      <a target="_blank"
-        class="py-2 px-4 rounded-full duration-100 ease-in-out hover:bg-zinc-50 hover:text-zinc-800"
-        href="https://google.com">Resume</a>
-    </li>
-  </ul>
-  <div class="flex ml-auto space-x-4">
-    <div
-      class="p-1 text-blue-200 bg-zinc-950 border-2 border-solid border-zinc-600 rounded-full duration-300 ease-in-out cursor-pointer hover:bg-zinc-800 hover:text-white hover:rotate-180"
-    >
-      <svg
-        width="30"
-        height="30"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8V16Z"
-          fill="currentColor"
-        />
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4V8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16V20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4Z"
-          fill="currentColor"
-        />
-      </svg>
+<nav class="pt-4 px-4 md:px-20">
+  <div class="flex items-center justify-between sm:justify-around">
+
+    <div class="size-11">
+      <img *ngIf="isDarkMode; else lightLogo" ngSrc="assets/img/logo-white.svg" alt="Phœnix" width="80" height="80"/>
+      <ng-template #lightLogo>
+        <img ngSrc="assets/img/logo-black.svg" alt="Phœnix" width="80" height="80"/>
+      </ng-template>
     </div>
+
+    <div class="hidden sm:flex mt-2">
+      <ul class="flex justify-center items-center px-3 font-medium text-sm rounded-full">
+        <li class="mx-1" *ngFor="let link of links">
+          <a routerLink="{{link.route}}" class="border border-transparent hover:border-zinc-300/40 dark:hover:border-zinc-700/40 hover:bg-zinc-100 dark:hover:bg-zinc-800/25 rounded-full px-3 py-2.5">{{link.name}}</a>
+        </li>
+        <li class="mx-1">
+          <a target="_blank" class="border border-transparent hover:border-zinc-300/40 dark:hover:border-zinc-700/40 hover:bg-zinc-100 dark:hover:bg-zinc-800/25 rounded-full px-3 py-2.5" href="#">Resume</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="flex space-x-4 mt-2">
+      <button class="flex py-2 px-3 justify-center items-center bg-zinc-50 dark:bg-zinc-800/25 rounded-full border border-zinc-200 dark:border-zinc-700/40" (click)="toggleDarkMode()">
+        <ng-icon *ngIf="isDarkMode; else lightIcon" name="heroSunSolid" size=20 class="text-zinc-400 hover:text-zinc-200"></ng-icon>
+        <ng-template #lightIcon>
+          <ng-icon name="heroMoonSolid" size=20 class="text-zinc-700 hover:text-zinc-800"></ng-icon>
+        </ng-template>
+      </button>
+      <div class="block sm:hidden">
+        <button (click)="toggleMobileMenu()"  class="flex py-2 px-3 justify-center items-center bg-zinc-50 dark:bg-zinc-800/25 rounded-full border border-zinc-200 dark:border-zinc-700/40 focus:outline-none">
+          <ng-icon *ngIf="!isMobileMenuOpen" name="heroSquares2x2Solid" size=20 class="text-zinc-700 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200"></ng-icon>
+          <ng-icon *ngIf="isMobileMenuOpen" name="heroXMarkSolid" size=20 class="text-zinc-700 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200"></ng-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isMobileMenuOpen" class="sm:hidden flex flex-col items-center w-full mt-8 space-y-4 font-medium">
+    <ul class="flex flex-col items-center w-full space-y-2 bg-zinc-100 dark:bg-zinc-900 rounded-lg border border-zinc-300/40 dark:border-zinc-700/40 p-4">
+      <li class="w-full" *ngFor="let link of links">
+        <a routerLink="{{link.route}}" class="block w-full text-center py-2 rounded-lg bg-zinc-200/40 dark:bg-zinc-700/25 hover:bg-zinc-200/50 dark:hover:bg-zinc-700/15 hover:text-zinc-900 dark:hover:text-white">{{link.name}}</a>
+      </li>
+      <li class="w-full">
+        <a target="_blank" class="block w-full text-center py-2 rounded-lg bg-zinc-200/40 dark:bg-zinc-700/25 hover:bg-zinc-200/50 dark:hover:bg-zinc-700/15 hover:text-zinc-900 dark:hover:text-white" href="#">Resume</a>
+      </li>
+    </ul>
   </div>
 </nav>
