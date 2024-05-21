@@ -1,12 +1,15 @@
 <section class="w-full flex justify-center gap-x-8 mt-20 px-4 py-4 sm:px-20" *ngIf="post">
   <div class="w-full space-y-8 flex flex-col">
-    <div class="flex items-center gap-x-4 text-zinc-500">
-      <div class="w-1 h-6 bg-zinc-600 rounded-full"></div>
-      <p class="font-medium">Posted : {{ post.createdAt | date}}</p>
+    <div class="flex text-zinc-500 space-x-4 items-center">
+      <div> | </div>
+      <p class="date"> Posted : {{ post.createdAt | date }}</p>
     </div>
-    <h1 class="text-6xl font-extrabold">{{post.title}}</h1>
-    <markdown
-      [data]="post.content">
-    </markdown>
+    <div>
+      <h1 class="text-4xl font-extrabold">{{post.title}}</h1>
+      <markdown
+        [data]="post.content"
+        class="space-y-4">
+      </markdown>
+    </div>
   </div>
 </section>

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Socials} from "../../config/socials";
+import {Socials} from "../../utils/socials";
 import {Subscription} from "rxjs";
 import {DarkmodeService} from "../../services/darkmode.service";
 

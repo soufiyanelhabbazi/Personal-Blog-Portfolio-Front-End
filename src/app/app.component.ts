@@ -6,14 +6,7 @@ import {DarkmodeService} from "./services/darkmode.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'Soufiyan El Habbazi';
-  isLoading = true;
   constructor(private darkModeService: DarkmodeService) {}
-
-  ngOnInit() {
-    setTimeout( () => {
-      this.isLoading = false;
-    }, 3000)
-  }
 }

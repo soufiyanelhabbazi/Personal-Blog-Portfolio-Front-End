@@ -8,12 +8,12 @@
   </div>
 
   <div class="w-full flex flex-col gap-4 items-center rounded-lg md:flex-row" *ngFor="let p of projects | async;">
-    <div class="w-full md:w-1/2 relative z-0">
+    <div class="w-full md:w-2/5 relative z-0">
       <img [src]="p.image" alt="Project image" class="rounded-lg" />
       <div class="absolute inset-0 rounded-md flex justify-center items-center duration-150 ease-in-out z-10 opacity-25 bg-zinc-200 hover:bg-transparent">
       </div>
     </div>
-    <div class="w-full md:w-1/2 flex flex-col items-center md:items-end gap-y-4 md:gap-y-8">
+    <div class="w-full md:w-3/5 flex flex-col items-center md:items-end gap-y-4 md:gap-y-8">
       <h1 class="font-semibold text-2xl">{{ p.title }}</h1>
       <div
         class="bg-zinc-200/25 dark:bg-zinc-800/25 border border-zinc-300/40 dark:border-zinc-700/40 text-zinc-700 dark:text-zinc-300 rounded-xl w-full p-5 leading-loose backdrop-blur-lg"

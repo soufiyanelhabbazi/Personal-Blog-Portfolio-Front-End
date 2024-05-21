@@ -19,7 +19,6 @@ import { NgIconsModule } from '@ng-icons/core';
 import { heroSunSolid, heroMoonSolid, heroSquares2x2Solid, heroXMarkSolid, heroEnvelopeSolid } from '@ng-icons/heroicons/solid';
 import { heroEnvelope, heroChevronRight, heroBriefcase } from '@ng-icons/heroicons/outline';
 import {simpleLinkedin, simpleGithub, simpleX, simpleSpotify, simpleLeetcode} from '@ng-icons/simple-icons';
-import {LoadingComponent} from "./loading-page/loading.component";
 
 @NgModule({
   declarations: [
@@ -32,8 +31,7 @@ import {LoadingComponent} from "./loading-page/loading.component";
     ProjectsComponent,
     PostComponent,
     AdminComponent,
-    NotFoundComponent,
-    LoadingComponent
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

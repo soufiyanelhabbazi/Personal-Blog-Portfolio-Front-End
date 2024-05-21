@@ -2,12 +2,12 @@
   <h1 class="text-center font-bold text-3xl sm:text-4xl sm:leading-normal">
     Writing on software development and anything else I find interesting.
   </h1>
-  <p class=" text-md sm:text-lg text-zinc-400">
+  <p class=" text-md sm:text-lg text-zinc-600 dark:text-zinc-400">
     All of my long-form thoughts on programming, content creation,and more, collected in chronological order.
   </p>
 </section>
 
-<section class="w-full flex justify-center gap-x-8 mt-4 px-4 py-4 sm:px-20">
+<!--<section class="w-full flex justify-center gap-x-8 mt-4 px-4 py-4 sm:px-20">
   <div class="w-full lg:w-3/4 space-y-6 flex flex-col">
     <div class="flex flex-col py-6 px-8 space-y-3 rounded-2xl bg-zinc-200/25 dark:bg-zinc-800/15" *ngFor="let p of posts | async">
       <div class="text-zinc-400 dark:text-zinc-600 font-medium text-md">
@@ -21,6 +21,25 @@
         {{ p.description }}
       </p>
       <a [routerLink]="'/blog/posts/'+p._id" class="underline underline-offset-4 text-zinc-900 dark:text-zinc-100">Read article</a>
+    </div>
+  </div>
+</section>-->
+
+<section class="w-full flex justify-center gap-x-8 mt-4 px-4 py-4 sm:px-20">
+  <div class="w-full lg:w-3/4 space-y-6 flex flex-col border-l border-l-zinc-300/40 dark:border-l-zinc-700/40">
+    <div class="flex items-baseline w-full space-x-2 sm:space-x-12" *ngFor="let p of posts | async">
+      <div class="px-2 sm:px-4 text-zinc-400 dark:text-zinc-600">
+        <div class="flex items-center">
+          <p class="date">{{ p.createdAt | date}}</p>
+        </div>
+      </div>
+      <div class="flex flex-col flex-1 py-6 px-8 space-y-3 rounded-2xl bg-zinc-200/25 dark:bg-zinc-800/15">
+        <h5 class="font-semibold">{{ p.title }}</h5>
+        <p class="text-zinc-600 dark:text-zinc-400">
+          {{ p.description }}
+        </p>
+        <a [routerLink]="'/blog/posts/'+p._id" class="underline underline-offset-4 text-zinc-900 dark:text-zinc-100">Read article</a>
+      </div>
     </div>
   </div>
 </section>
