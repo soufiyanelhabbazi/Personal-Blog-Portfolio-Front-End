@@ -11,14 +11,14 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import {CommonModule, NgOptimizedImage} from "@angular/common";
 import { PostComponent } from './components/post/post.component';
 import {HttpClientModule} from "@angular/common/http";
-import {MarkdownModule} from "ngx-markdown";
-import { AdminComponent } from './components/admin/admin.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-
+import {MarkdownModule} from "ngx-markdown";
 import { NgIconsModule } from '@ng-icons/core';
 import { heroSunSolid, heroMoonSolid, heroSquares2x2Solid, heroXMarkSolid, heroEnvelopeSolid } from '@ng-icons/heroicons/solid';
-import { heroEnvelope, heroChevronRight, heroBriefcase } from '@ng-icons/heroicons/outline';
+import { heroEnvelope, heroChevronRight, heroChevronLeft, heroBriefcase } from '@ng-icons/heroicons/outline';
 import {simpleLinkedin, simpleGithub, simpleX, simpleSpotify, simpleLeetcode} from '@ng-icons/simple-icons';
+import { BlogPostSkeletonComponent } from './components/skeleton-loading/blog-post-skeleton/blog-post-skeleton.component';
+import { HomePostSkeletonComponent } from './components/skeleton-loading/home-post-skeleton/home-post-skeleton.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +30,9 @@ import {simpleLinkedin, simpleGithub, simpleX, simpleSpotify, simpleLeetcode} fr
     BlogComponent,
     ProjectsComponent,
     PostComponent,
-    AdminComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    BlogPostSkeletonComponent,
+    HomePostSkeletonComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +41,7 @@ import {simpleLinkedin, simpleGithub, simpleX, simpleSpotify, simpleLeetcode} fr
     MarkdownModule.forRoot(),
     CommonModule,
     NgIconsModule.withIcons({heroSunSolid, heroMoonSolid, heroEnvelopeSolid,
-      heroSquares2x2Solid, heroXMarkSolid, heroEnvelope, heroChevronRight, heroBriefcase,
+      heroSquares2x2Solid, heroXMarkSolid, heroEnvelope, heroChevronRight, heroChevronLeft, heroBriefcase,
       simpleLinkedin, simpleGithub, simpleX, simpleSpotify, simpleLeetcode}),
     NgOptimizedImage,
   ],

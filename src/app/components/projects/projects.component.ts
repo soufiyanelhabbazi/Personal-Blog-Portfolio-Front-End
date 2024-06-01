@@ -11,6 +11,7 @@ import {Project} from "../../models/project.model";
 export class ProjectsComponent {
   projects !: Observable<Array<Project>>;
   constructor(private projectService:ProjectService){}
+  
 
   ngOnInit() {
     this.getProjects();

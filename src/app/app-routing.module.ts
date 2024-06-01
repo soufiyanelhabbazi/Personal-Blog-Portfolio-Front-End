@@ -5,7 +5,6 @@ import {AboutComponent} from "./components/about/about.component";
 import {ProjectsComponent} from "./components/projects/projects.component";
 import {BlogComponent} from "./components/blog/blog.component";
 import {PostComponent} from "./components/post/post.component";
-import { AdminComponent } from './components/admin/admin.component';
 import {NotFoundComponent} from "./components/not-found/not-found.component";
 
 const routes: Routes = [
@@ -20,7 +19,6 @@ const routes: Routes = [
   { path :"projects", component : ProjectsComponent},
   { path :"blog", component : BlogComponent},
   { path :"blog/posts/:id", component : PostComponent},
-  { path :"admin", component : AdminComponent},
   { path: '**', component: NotFoundComponent },
 ];
 

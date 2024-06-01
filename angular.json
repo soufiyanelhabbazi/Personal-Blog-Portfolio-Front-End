@@ -37,6 +37,7 @@
           },
           "configurations": {
             "production": {
+              "optimization": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -102,6 +103,9 @@
     }
   },
   "cli": {
-    "analytics": "0f837b11-cf24-4647-b8ef-75891abb4bca"
+    "analytics": "0f837b11-cf24-4647-b8ef-75891abb4bca",
+    "cache": {
+      "enabled": false
+    } 
   }
 }

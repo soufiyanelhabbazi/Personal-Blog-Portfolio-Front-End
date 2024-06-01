@@ -3,23 +3,21 @@
     <h1 class="text-3xl sm:text-4xl font-bold">Here are some of the projects that I've built.</h1>
     <p class="text-zinc-600 dark:text-zinc-400">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, aperiam architecto aspernatur commodi cumque eveniet explicabo facilis, fuga impedit molestias natus officiis quo reiciendis rem repellat similique sunt ut veritatis.
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad corporis culpa deserunt doloremque doloribus dolorum eaque eligendi, fuga impedit modi, possimus rem sed, similique ullam unde veniam!
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
     </p>
   </div>
 
   <div class="w-full flex flex-col gap-4 items-center rounded-lg md:flex-row" *ngFor="let p of projects | async;">
-    <div class="w-full md:w-2/5 relative z-0">
-      <img [src]="p.image" alt="Project image" class="rounded-lg" />
-      <div class="absolute inset-0 rounded-md flex justify-center items-center duration-150 ease-in-out z-10 opacity-25 bg-zinc-200 hover:bg-transparent">
-      </div>
+    <div class="w-full md:w-1/2 relative z-0">
+      <a [href]="p.image" target="_blank">
+        <img [src]="p.image" alt="Project image" class="rounded-xl cursor-zoom-in" />
+      </a>
     </div>
-    <div class="w-full md:w-3/5 flex flex-col items-center md:items-end gap-y-4 md:gap-y-8">
-      <h1 class="font-semibold text-2xl">{{ p.title }}</h1>
-      <div
-        class="bg-zinc-200/25 dark:bg-zinc-800/25 border border-zinc-300/40 dark:border-zinc-700/40 text-zinc-700 dark:text-zinc-300 rounded-xl w-full p-5 leading-loose backdrop-blur-lg"
-      >
-        <ul class="list-disc flex flex-col font-medium ml-4">
-          <li *ngFor="let task of p.description">
+    <div class="w-full md:w-1/2 flex flex-col items-center md:items-end gap-y-4 md:gap-y-8">
+      <h1 class="text-center sm:text-right font-semibold text-2xl">{{ p.title }}</h1>
+      <div class="md:-ml-24 bg-zinc-100/80 dark:bg-zinc-900/80 border border-zinc-300/40 dark:border-zinc-700/40 text-zinc-700 dark:text-zinc-300 rounded-xl py-3 px-5 backdrop-blur-lg">
+        <ul class="list-disc flex flex-col font-medium py-1 px-2 text-sm space-y-2 sm:space-y-3">
+          <li *ngFor="let task of p.description" class="text-jusitfy">
             {{task}}
           </li>
         </ul>
@@ -33,6 +31,39 @@
   </div>
 </section>
 
-<div class="w-full flex justify-center gap-x-8 mt-4 px-4 py-4 sm:px-20">
-  Pagination
+
+<!-- Pagination starts here -->
+<div class="max-w-5xl mx-auto mt-20 px-4 text-zinc-600 md:px-8">
+  <div class="hidden items-center justify-between sm:flex" aria-label="Pagination">
+      <a href="#" class="hover:text-zinc-800 dark:hover:text-zinc-400 flex items-center gap-x-2">
+          <ng-icon name="HeroChevronLeft"></ng-icon>
+          Previous
+      </a>
+      <ul class="flex items-center gap-1">
+        <li class="text-sm">
+            <a href="#" aria-current="page" class="px-3 py-2 rounded-lg duration-150 bg-zinc-950 dark:bg-zinc-50 text-zinc-200 dark:text-zinc-800 font-medium">
+                1
+            </a>
+        </li>
+          <li class="text-sm">
+              <a href="#" class="px-3 py-2 rounded-lg duration-150 hover:text-zinc-200 dark:hover:text-zinc-800 hover:bg-zinc-950 dark:hover:bg-zinc-50">
+                  2
+              </a>
+          </li>
+      </ul>
+      <a href="#" class="hover:text-zinc-800 dark:hover:text-zinc-400 flex items-center gap-x-2">
+          Next
+          <ng-icon name="HeroChevronRight"></ng-icon>
+      </a>
+  </div>
+  <!-- On mobile version -->
+  <div class="flex items-center justify-between text-sm text-zinc-700 dark:text-zinc-400 font-medium sm:hidden">
+      <a href="#" class="px-4 py-2 border rounded-lg duration-150 hover:bg-zinc-200/50 hover:text-zinc-800 dark:hover:bg-zinc-800 dark:hover:text-zinc-200">Previous</a>
+      <div class="font-medium">
+          Page 1 of 2
+      </div>
+      <a href="#" class="px-4 py-2 border rounded-lg duration-150 hover:bg-zinc-200/50 hover:text-zinc-800 dark:hover:bg-zinc-800 dark:hover:text-zinc-200">Next</a>
+  </div>
 </div>
+
+<!-- Pagination ends here -->

@@ -13,11 +13,11 @@ body {
 }
 
 .date {
-  @apply font-normal text-zinc-500 text-sm sm:text-base;
+  @apply font-normal text-zinc-500 text-xs sm:text-sm lg:text-base;
 }
 
 markdown {
-  @apply max-w-full mx-auto flex flex-col prose prose-base prose-zinc md:prose-lg dark:prose-invert prose-img:rounded-xl prose-img:mx-auto prose-img:w-full prose-img:sm:w-1/2;
+  @apply max-w-full mx-auto flex flex-col prose prose-base prose-zinc md:prose-lg dark:prose-invert prose-img:rounded-xl prose-img:mx-auto prose-img:w-full prose-img:sm:w-2/3;
 }
 
 .logo-animation {
@@ -34,6 +34,9 @@ markdown {
   }
 }
 
+.skeleton-pulse {
+  @apply animate-pulse;
+}
 
 code[class*="language-"] {
   color: #d4d4d4;
