@@ -1,9 +1,10 @@
 <section class="flex flex-col justify-between gap-10 mt-16 px-4 py-4 lg:flex-row sm:px-20">
   <div class="flex flex-col space-y-4 w-full lg:w-1/2">
-    <h1 class="font-bold text-3xl sm:text-4xl leading-snug">
-      Hello 👋🏻<br />
-      I'm Soufiyan El Habbazi.
-    </h1>
+    <div class="flex flex-col font-bold text-3xl sm:text-4xl leading-snug">
+      <h1 class="flex">Hello <img ngSrc="assets/img/hello.png" alt="👋🏻" width="40" height="40" class="inline-block mx-2 rotate-6" /></h1>
+      
+      <h1>I'm Soufiyan El Habbazi.</h1>
+    </div>
     <p class="leading-relaxed text-md text-zinc-600 dark:text-zinc-400 text-justify">
       I hail from the historical city of
       <a class="underline" href="https://fr.wikipedia.org/wiki/Mekn%C3%A8s" target="_blank">Meknes</a>,
@@ -53,11 +54,11 @@
       <img  *ngIf="isDarkMode; else lightLogo"
         ngSrc="assets/img/logo-white.svg" alt="Phœnix"
         class="logo-animation rounded-2xl"
-        height="800" width="800"/>
+        height="400" width="300"/>
       <ng-template #lightLogo>
         <img ngSrc="assets/img/logo-black.svg" alt="Phœnix"
              class="logo-animation rounded-2xl"
-             height="800" width="800"/>
+             height="400" width="300"/>
       </ng-template>
     </div>
     <div class="flex flex-col w-2/3 self-center space-y-4 mt-10">

@@ -4,19 +4,20 @@
       src="assets/img/openai-wallpaper.png"
       alt="A slider image"
       class="rounded-2xl w-full max-h-[775px] object-cover"
+      loading="lazy"
     />
     <div class="absolute inset-0 z-10 flex justify-center items-center rounded-2xl text-white bg-zinc-950/15 dark:bg-zinc-950/25">
       <div class="w-full sm:w-3/4 flex flex-col justify-center items-center text-center px-4 space-y-4 sm:space-y-16">
-        <h1 class="font-bold text-2xl sm:text-5xl leading-snug">
+        <h1 class="font-bold text-3xl sm:text-4xl lg:text-5xl leading-snug">
           Tech & I belong to chaos, and I'm all for it.
         </h1>
-        <p class="leading-normal sm:leading-relaxed text-md sm:text-lg">
-          <b>Soufiyan EL HABBAZI</b>, Software engineer with expertise in system design
+        <p class="leading-normal sm:leading-relaxed font-light text-base sm:text-lg">
+          <span class="font-semibold">Soufiyan EL HABBAZI</span>, Software engineer with expertise in system design
           and full-stack development.<br/>
           Feel free to reach out to me on my social media profiles down below.
         </p>
         <div class="flex space-x-6 pt-8">
-          <a *ngFor="let s of socials" class="duration-100 ease-in-out hover:opacity-75 hover:scale-90" href="{{s.url}}">
+          <a *ngFor="let s of socials" class="duration-100 ease-in-out hover:opacity-75 hover:scale-90" href="{{s.url}}" target="_blank">
             <ng-icon name="{{s.icon}}" size="28"></ng-icon>
           </a>
         </div>
@@ -27,57 +28,23 @@
 
 <section class="w-full flex flex-col justify-between gap-8 mt-12 px-4 py-4 lg:flex-row lg:px-20">
   <div class="w-full flex flex-col lg:w-3/5 space-y-6">
-    <div class="flex flex-col p-4 sm:py-6 sm:px-8 space-y-3 rounded-2xl bg-zinc-200/25 dark:bg-zinc-800/15">
-      <div class="flex justify-between items-center text-zinc-400 dark:text-zinc-600 font-medium text-md">
-        <div class="flex space-x-4 items-center">
-          <div class="w-0.5 h-5 bg-zinc-400 dark:bg-zinc-600 rounded-full"></div>
-          <p class="date">March 03, 2024.</p>
+    <ng-container *ngIf="(posts$ | async) as postsList; else loading">
+      <div class="flex flex-col p-4 sm:py-6 sm:px-8 space-y-3 rounded-2xl bg-zinc-200/25 dark:bg-zinc-800/15" *ngFor="let p of postsList">
+        <div class="flex justify-between items-center text-zinc-400 dark:text-zinc-600 font-medium text-md">
+          <div class="flex space-x-4 items-center">
+            <div class="w-0.5 h-5 bg-zinc-400 dark:bg-zinc-600 rounded-full"></div>
+            <p class="date">{{p.createdAt | date}}.</p>
+          </div>
         </div>
+        <h5 class="font-semibold text-lg">{{p.title}}</h5>
+        <p class="text-zinc-600 dark:text-zinc-400">
+          {{p.description}}
+        </p>
+        <a [routerLink]="'/blog/posts/'+p._id" class="flex items-center underline underline-offset-4 text-zinc-900 dark:text-zinc-100 gap-x-2">
+          Read article
+        </a>
       </div>
-      <h5 class="font-semibold text-lg">Soso the Java champion</h5>
-      <p class="text-zinc-600 dark:text-zinc-400">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio
-        soluta cupiditate, non, sequi fugiat delectus qui officia
-        asperiores, omnis iure animi culpa ullam...
-      </p>
-      <a href="#" class="flex items-center underline underline-offset-4 text-zinc-900 dark:text-zinc-100 gap-x-2">
-        Read article
-      </a>
-    </div>
-    <div class="flex flex-col p-4 sm:py-6 sm:px-8 space-y-3 rounded-2xl bg-zinc-200/25 dark:bg-zinc-800/15">
-      <div class="flex justify-between items-center text-zinc-400 dark:text-zinc-600 font-medium text-md">
-        <div class="flex space-x-4 items-center">
-          <div class="w-0.5 h-5 bg-zinc-400 dark:bg-zinc-600 rounded-full"></div>
-          <p class="date">March 03, 2024.</p>
-        </div>
-      </div>
-      <h5 class="font-semibold text-lg">Soso the Java champion</h5>
-      <p class="text-zinc-600 dark:text-zinc-400">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio
-        soluta cupiditate, non, sequi fugiat delectus qui officia
-        asperiores, omnis iure animi culpa ullam...
-      </p>
-      <a href="#" class="underline underline-offset-4 text-zinc-900 dark:text-zinc-100">
-        Read article
-      </a>
-    </div>
-    <div class="flex flex-col  p-4 sm:py-6 sm:px-8 space-y-3 rounded-2xl bg-zinc-200/25 dark:bg-zinc-800/15">
-      <div class="flex justify-between items-center text-zinc-400 dark:text-zinc-600 font-medium text-md">
-        <div class="flex space-x-4 items-center">
-          <div class="w-0.5 h-5 bg-zinc-400 dark:bg-zinc-600 rounded-full"></div>
-          <p class="date">March 03, 2024.</p>
-        </div>
-      </div>
-      <h5 class="font-semibold text-lg">Soso the Java champion</h5>
-      <p class="text-zinc-600 dark:text-zinc-400">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio
-        soluta cupiditate, non, sequi fugiat delectus qui officia
-        asperiores, omnis iure animi culpa ullam...
-      </p>
-      <a href="#" class="flex items-center underline underline-offset-4 text-zinc-900 dark:text-zinc-100 gap-x-2">
-        Read article
-      </a>
-    </div>
+    </ng-container>
   </div>
 
   <div class="w-full flex flex-col lg:w-2/5 gap-y-8 items-center lg:items-end">
@@ -189,3 +156,9 @@
     </div>
   </div>
 </section>
+
+<ng-template #loading>
+  <ng-container *ngFor="let i of [1,2,3]">
+    <HomePostSkeleton />
+  </ng-container>
+</ng-template>

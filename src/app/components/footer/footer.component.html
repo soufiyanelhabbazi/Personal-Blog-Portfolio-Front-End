@@ -1,22 +1,14 @@
-<footer
-  class="w-full flex flex-col items-center justify-between gap-y-8 mt-20 px-4 py-10 border-t border-t-zinc-300/40 dark:border-t-zinc-700/40 md:flex-row md:px-20"
->
-  <div class="flex space-x-4 sm:space-x-8 font-medium">
-    <a routerLink="/home">Home</a>
-    <a routerLink="/about">About</a>
-    <a routerLink="/projects">Projects</a>
-    <a routerLink="/blog">Blog</a>
-    <a href="#" target="_blank">Resume</a>
+<footer class="w-full flex flex-col items-center justify-between gap-y-8 mt-20 px-4 py-10 border-t border-t-zinc-300/40 dark:border-t-zinc-700/40 md:flex-row md:px-20">
+  <div class="flex space-x-2 sm:space-x-6 font-medium">
+    <a routerLink="/home" class="p-2" routerLinkActive="border-b border-b-zinc-900 dark:border-b-zinc-100">Home</a>
+    <a routerLink="/about" class="p-2" routerLinkActive="border-b border-b-zinc-900 dark:border-b-zinc-100">About</a>
+    <a routerLink="/projects" class="p-2" routerLinkActive="border-b border-b-zinc-900 dark:border-b-zinc-100">Projects</a>
+    <a routerLink="/blog" class="p-2" routerLinkActive="border-b border-b-zinc-900 dark:border-b-zinc-100">Blog</a>
+    <a routerLink="/resume" target="_blank" class="p-2">Resume</a>
   </div>
   <div class="flex">
     <p class="text-zinc-500">
-      Design inspired from
-      <a
-        class="text-zinc-700 dark:text-zinc-300"
-        target="_blank"
-        href="https://www.danvega.dev/"
-      >Dan Vega</a
-      >.
+      © {{currentYear}} Soufiyan El Habbazi. All rights reserved.
     </p>
   </div>
 </footer>

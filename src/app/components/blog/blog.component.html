@@ -6,45 +6,75 @@
     All of my long-form thoughts on programming, content creation,and more, collected in chronological order.
   </p>
 </section>
-
-<!--<section class="w-full flex justify-center gap-x-8 mt-4 px-4 py-4 sm:px-20">
-  <div class="w-full lg:w-3/4 space-y-6 flex flex-col">
-    <div class="flex flex-col py-6 px-8 space-y-3 rounded-2xl bg-zinc-200/25 dark:bg-zinc-800/15" *ngFor="let p of posts | async">
-      <div class="text-zinc-400 dark:text-zinc-600 font-medium text-md">
-        <div class="flex space-x-4 items-center">
-          <div class="w-0.5 h-5 bg-zinc-400 dark:bg-zinc-600 rounded-full"></div>
-          <p class="date">{{ p.createdAt | date}}</p>
-        </div>
-      </div>
-      <h5 class="font-semibold text-lg">{{ p.title }}</h5>
-      <p class="text-zinc-600 dark:text-zinc-400">
-        {{ p.description }}
-      </p>
-      <a [routerLink]="'/blog/posts/'+p._id" class="underline underline-offset-4 text-zinc-900 dark:text-zinc-100">Read article</a>
-    </div>
-  </div>
-</section>-->
-
 <section class="w-full flex justify-center gap-x-8 mt-4 px-4 py-4 sm:px-20">
   <div class="w-full lg:w-3/4 space-y-6 flex flex-col border-l border-l-zinc-300/40 dark:border-l-zinc-700/40">
-    <div class="flex items-baseline w-full space-x-2 sm:space-x-12" *ngFor="let p of posts | async">
-      <div class="px-2 sm:px-4 text-zinc-400 dark:text-zinc-600">
-        <div class="flex items-center">
-          <p class="date">{{ p.createdAt | date}}</p>
+    <ng-container *ngIf="(posts$ | async) as postsList; else loading">
+        <div class="flex items-baseline w-full space-x-2 sm:space-x-12" *ngFor="let p of postsList">
+          <div class="px-2 w-1/4 md:w-1/5 sm:px-4 text-zinc-400 dark:text-zinc-600">
+            <div class="flex items-center">
+              <p class="date">{{ p.createdAt | date}}</p>
+            </div>
+          </div>
+          <div class="flex flex-col flex-1 py-6 px-8 space-y-3 rounded-2xl bg-zinc-200/25 dark:bg-zinc-800/15">
+            <h5 class="font-semibold">{{ p.title }}</h5>
+            <p class="text-zinc-600 dark:text-zinc-400">
+              {{ p.description }}
+            </p>
+            <a [routerLink]="'/blog/posts/'+p._id" class="underline underline-offset-4 text-zinc-900 dark:text-zinc-100">Read article</a>
+          </div>
         </div>
-      </div>
-      <div class="flex flex-col flex-1 py-6 px-8 space-y-3 rounded-2xl bg-zinc-200/25 dark:bg-zinc-800/15">
-        <h5 class="font-semibold">{{ p.title }}</h5>
-        <p class="text-zinc-600 dark:text-zinc-400">
-          {{ p.description }}
-        </p>
-        <a [routerLink]="'/blog/posts/'+p._id" class="underline underline-offset-4 text-zinc-900 dark:text-zinc-100">Read article</a>
-      </div>
-    </div>
+    </ng-container>
   </div>
 </section>
 
-
-<div class="w-full flex justify-center gap-x-8 mt-4 px-4 py-4 sm:px-20">
-  Pagination
+<!-- Pagination starts here -->
+<div class="max-w-5xl mx-auto mt-20 px-4 text-zinc-600 md:px-8">
+  <div class="hidden items-center justify-between sm:flex" aria-label="Pagination">
+      <a href="#" class="hover:text-zinc-800 dark:hover:text-zinc-400 flex items-center gap-x-2">
+        <ng-icon name="HeroChevronLeft"></ng-icon>
+          Previous
+      </a>
+      <ul class="flex items-center gap-1">
+        <li class="text-sm">
+            <a href="#" aria-current="page" class="px-3 py-2 rounded-lg duration-150 bg-zinc-950 dark:bg-zinc-50 text-zinc-200 dark:text-zinc-800 font-medium">
+                1
+            </a>
+        </li>
+          <li class="text-sm">
+              <a href="#" class="px-3 py-2 rounded-lg duration-150 hover:text-zinc-200 dark:hover:text-zinc-800 hover:bg-zinc-950 dark:hover:bg-zinc-50">
+                  2
+              </a>
+          </li>
+          <li class="text-sm">
+              <div>
+                  ...
+              </div>
+          </li>
+          <li class="text-sm">
+              <a href="#" class="px-3 py-2 rounded-lg duration-150 hover:text-zinc-200 dark:hover:text-zinc-800 hover:bg-zinc-950 dark:hover:bg-zinc-50">
+                  5
+              </a>
+          </li>
+      </ul>
+      <a href="#" class="hover:text-zinc-800 dark:hover:text-zinc-400 flex items-center gap-x-2">
+          Next
+          <ng-icon name="HeroChevronRight"></ng-icon>
+      </a>
+  </div>
+  <!-- On mobile version -->
+  <div class="flex items-center justify-between text-sm text-zinc-700 dark:text-zinc-400 font-medium sm:hidden">
+    <a href="#" class="px-4 py-2 border rounded-lg duration-150 hover:bg-zinc-200/50 hover:text-zinc-800 dark:hover:bg-zinc-800 dark:hover:text-zinc-200">Previous</a>
+    <div class="font-medium">
+        Page 1 of 2
+    </div>
+    <a href="#" class="px-4 py-2 border rounded-lg duration-150 hover:bg-zinc-200/50 hover:text-zinc-800 dark:hover:bg-zinc-800 dark:hover:text-zinc-200">Next</a>
+  </div>
 </div>
+
+<!-- Pagination ends here -->
+
+<ng-template #loading>
+  <ng-container *ngFor="let i of [1,2,3,4]">
+    <BlogPostSkeleton />
+  </ng-container>
+</ng-template>
