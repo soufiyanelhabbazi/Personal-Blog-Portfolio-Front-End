@@ -13,7 +13,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     { name :"Home", route :"/home"},
     { name :"About", route :"/about"},
     { name :"Projects", route :"/projects"},
-    { name :"Blog", route :"/blog"}
+    { name :"Blog", route :"/blog"},
+    { name :"Resume", route :"/resume"}
   ];
 
   isMobileMenuOpen = false;
